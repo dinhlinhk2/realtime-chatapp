@@ -8,15 +8,12 @@ import { useAuthStore } from './store/useAuthStore';
 import { useThemeStore } from './store/useThemeStore';
 
 const App = () => {
-    const { authUser, authCheck, isCheckingAuth, onlineUsers } = useAuthStore();
+    const { authUser, authCheck, isCheckingAuth } = useAuthStore();
     const { theme } = useThemeStore();
-    console.log({ onlineUsers });
 
     useEffect(() => {
         authCheck();
     }, [authCheck]);
-
-    console.log({ authUser });
 
     if (isCheckingAuth && !authUser)
         return (
