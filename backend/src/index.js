@@ -25,6 +25,9 @@ app.use(cors({
 }))
 app.use(cookie());
 app.use(express.json({ limit: '50mb' }));
+
+Route(app);
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 
@@ -37,7 +40,6 @@ server.listen(port, () => {
   connectDB();
 });
 
-Route(app);
 
 
 
