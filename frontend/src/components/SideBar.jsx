@@ -15,7 +15,11 @@ const SideBar = () => {
     }, [getUsers]);
 
     const filteredUsers = showOnlyOnl ? users.filter((user) => onlineUsers.includes(user._id)) : users;
-    const UserOnline = filteredUsers;
+    if (Array.isArray(filteredUsers)) {
+        return;
+    } else {
+        console.error('y is not an array:', filteredUsers);
+    }
 
     if (isUsersLoading) return <SideBarSkeleton />;
     return (
@@ -44,7 +48,7 @@ const SideBar = () => {
             </div>
 
             <div className="overflow-y-auto w-full py-3">
-                {UserOnline?.map((user) => (
+                {filteredUsers?.map((user) => (
                     <button
                         key={user._id}
                         onClick={() => setSelectedUser(user)}
@@ -77,7 +81,7 @@ const SideBar = () => {
                         </div>
                     </button>
                 ))}
-                {UserOnline?.length === 0 && <div className="text-center text-zinc-500 py-4">No online users</div>}
+                {filteredUsers?.length === 0 && <div className="text-center text-zinc-500 py-4">No online users</div>}
             </div>
         </aside>
     );
