@@ -6,7 +6,7 @@ import { useAuthStore } from '../store/useAuthStore';
 import toast from 'react-hot-toast';
 
 const LoginPage = () => {
-    const { isLogging, login } = useAuthStore();
+    const { isLoggin, login } = useAuthStore();
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -78,8 +78,8 @@ const LoginPage = () => {
                                 />
                             </div>
                         </div>
-                        <button type="submit" className="btn w-full btn-primary" disabled={isLogging}>
-                            {isLogging ? (
+                        <button type="submit" className="btn w-full btn-primary" disabled={isLoggin}>
+                            {isLoggin ? (
                                 <>
                                     <Loader className="size-5 animate-spin" />
                                     Loading...
