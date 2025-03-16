@@ -16,8 +16,6 @@ const SideBar = () => {
 
     const fillUserOnl = showOnlyOnl ? users.filter((user) => onlineUsers.includes(user._id)) : users;
 
-    console.log(fillUserOnl);
-
     if (isUsersLoading) return <SideBarSkeleton />;
     return (
         <aside
