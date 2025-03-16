@@ -4,7 +4,7 @@ const cookie = require("cookie-parser");
 const morgan = require('morgan')
 const cors = require('cors')
 const connectDB = require("./lib/db");
-const { app, io, server } = require('./lib/socket')
+const { app, server } = require('./lib/socket')
 const path = require('path')
 
 dotevn.config();

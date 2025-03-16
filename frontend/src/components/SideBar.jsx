@@ -10,11 +10,11 @@ const SideBar = () => {
     const { getUsers, users, selectedUser, setSelectedUser, isUsersLoading } = useChatStore();
     const { onlineUsers } = useAuthStore();
 
-    const fillUserOnl = showOnlyOnl ? users.filter((user) => onlineUsers.includes(user._id)) : users;
-
     useEffect(() => {
         getUsers();
     }, [getUsers]);
+
+    const fillUserOnl = showOnlyOnl ? users.filter((user) => onlineUsers.includes(user._id)) : users;
 
     if (isUsersLoading) return <SideBarSkeleton />;
     return (
@@ -43,7 +43,7 @@ const SideBar = () => {
             </div>
 
             <div className="overflow-y-auto w-full py-3">
-                {fillUserOnl.map((user) => (
+                {fillUserOnl?.map((user) => (
                     <button
                         key={user._id}
                         onClick={() => setSelectedUser(user)}
