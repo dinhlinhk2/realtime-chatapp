@@ -15,9 +15,7 @@ export const useAuthStore = create((set, get) => ({
     socket: null,
     authCheck: async () => {
         try {
-            const res = await axiosInstance.get('/v1/auth/checkuser', {
-                withCredentials: true,
-            });
+            const res = await axiosInstance.get('/v1/auth/checkuser');
             set({ authUser: res.data });
             get().connectSocket();
         } catch (error) {
@@ -57,9 +55,7 @@ export const useAuthStore = create((set, get) => ({
     },
     logout: async () => {
         try {
-            await axiosInstance.post('/v1/auth/logout', {
-                withCredentials: true,
-            });
+            await axiosInstance.post('/v1/auth/logout');
             set({ authUser: null });
             toast.success('Logout Success!');
             get().disconnectSocket();

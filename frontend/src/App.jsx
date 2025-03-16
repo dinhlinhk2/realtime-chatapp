@@ -14,6 +14,7 @@ const App = () => {
         authCheck();
     }, [authCheck]);
     console.log({ onlineUsers });
+    console.log(authUser);
 
     if (isCheckingAuth && !authUser)
         return (
