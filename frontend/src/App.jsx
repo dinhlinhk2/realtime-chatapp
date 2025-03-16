@@ -10,10 +10,12 @@ import { useThemeStore } from './store/useThemeStore';
 const App = () => {
     const { authUser, authCheck, isCheckingAuth, onlineUsers } = useAuthStore();
     const { theme } = useThemeStore();
+    console.log({ onlineUsers });
+
     useEffect(() => {
         authCheck();
     }, [authCheck]);
-    console.log({ onlineUsers });
+
     console.log({ authUser });
 
     if (isCheckingAuth && !authUser)
@@ -28,10 +30,10 @@ const App = () => {
             <Navbar />
             <Routes>
                 <Route path="/" element={authUser ? <HomePage /> : <Navigate to="/login" />} />
-                <Route path="/login" element={!authUser ? <LoginPage /> : <Navigate to="/" />} />
                 <Route path="/register" element={!authUser ? <RegisterPage /> : <Navigate to="/" />} />
-                <Route path="/profile" element={authUser ? <ProfilePage /> : <Navigate to="/login" />} />
+                <Route path="/login" element={!authUser ? <LoginPage /> : <Navigate to="/" />} />
                 <Route path="/settings" element={<SettingPage />} />
+                <Route path="/profile" element={authUser ? <ProfilePage /> : <Navigate to="/login" />} />
             </Routes>
             <Toaster />
         </div>
