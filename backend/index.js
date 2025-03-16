@@ -11,7 +11,7 @@ dotevn.config();
 const port = process.env.PORT;
 
 const Route = require('./routes/index')
-const __dirname = path.resolve()
+
 
 app.use(
   express.urlencoded({
@@ -26,12 +26,12 @@ app.use(cors({
 app.use(cookie());
 app.use(express.json({ limit: '50mb' }));
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../frontend/dist')))
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend', 'dist', 'index.html'))
-  })
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+  });
 }
 server.listen(port, () => {
   console.log("Server is success " + port);
