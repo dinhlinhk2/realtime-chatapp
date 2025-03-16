@@ -1,7 +1,7 @@
 import { X } from 'lucide-react';
 import { useAuthStore } from '../store/useAuthStore';
 import { useChatStore } from '../store/useChatStore';
-import avt from '../assets/avt.jpg';
+import avt from '../../public/avt.jpg';
 
 const ChatHeader = () => {
     const { selectedUser, setSelectedUser } = useChatStore();

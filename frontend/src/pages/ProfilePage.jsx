@@ -1,6 +1,6 @@
 import { Camera, Mail, User } from 'lucide-react';
 import { useAuthStore } from '../store/useAuthStore';
-import avg from '../assets/avt.jpg';
+import avg from '../../public/avt.jpg';
 import { useState } from 'react';
 
 const ProfilePage = () => {

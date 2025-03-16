@@ -4,7 +4,7 @@ import ChatHeader from './ChatHeader';
 import MessageInput from './MessageInput';
 import MessageSkeleton from './skeletons/MessageSkeleton';
 import { useAuthStore } from '../store/useAuthStore';
-import avt from '../assets/avt.jpg';
+import avt from '../..public/avt.jpg';
 import { formatTime } from '../lib/utils';
 
 const ChatContainer = () => {
