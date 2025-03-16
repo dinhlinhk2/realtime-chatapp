@@ -3,14 +3,14 @@ const dotevn = require("dotenv");
 const cookie = require("cookie-parser");
 const morgan = require('morgan')
 const cors = require('cors')
-const connectDB = require("./src/lib/db");
-const { app, server } = require('./src/lib/socket')
+const connectDB = require("./lib/db");
+const { app, server } = require('./lib/socket')
 const path = require('path')
 
 dotevn.config();
 const port = process.env.PORT;
 
-const Route = require('./src/routes/index')
+const Route = require('./routes/index')
 
 
 app.use(
