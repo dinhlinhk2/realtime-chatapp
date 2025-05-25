@@ -33,7 +33,7 @@ export const useAuthStore = create((set, get) => ({
             toast.success('Register success');
             get().connectSocket();
         } catch (error) {
-            toast.error('Sign Up error', error);
+            toast.error(error.response.data.message);
             set({ authUser: null });
         } finally {
             set({ isSigningUp: false });
@@ -47,7 +47,7 @@ export const useAuthStore = create((set, get) => ({
             toast.success('Sign in success!');
             get().connectSocket();
         } catch (error) {
-            toast.error('Sign in Error', error);
+            toast.error(error.response.data.message);
             set({ authUser: null });
         } finally {
             set({ isLoggin: false });
@@ -70,7 +70,7 @@ export const useAuthStore = create((set, get) => ({
             set({ authUser: res.data });
             toast.success('Upload Success!');
         } catch (error) {
-            toast.error('Upload error', error);
+            toast.error(error.response.data.message);
         } finally {
             set({ isupdateProfile: false });
         }

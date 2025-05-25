@@ -16,6 +16,8 @@ const usersOnline = {}
 function getReceiverSocketId(userId) {
     return usersOnline[userId]
 }
+console.log(usersOnline);
+
 
 io.on('connection', (socket) => {
     console.log('A user connected', socket.id)
